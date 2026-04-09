@@ -23,7 +23,19 @@ Julius ai-data analyst
 
     git init
     git add.
+    git status
     git log
     git commit
+
+    git push -u origin *nombre*
+
+    git pull
+
+        - crear un branch -
+    git branch *nome* 
+        - cambiar de branch -
+    git checkout *nome* 
+    git checkout -b *nome*
+
 
 </GIT>
