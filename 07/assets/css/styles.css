@@ -1,0 +1,78 @@
+/* ········· reset ·····················*/
+:root{
+    /*RGBA coordinate (a, b, c | trasparenza d) */
+    --color-a: rgba(10,70,20,0.3);
+    /*RGB coordinate (a, b, c) */
+    --color-b: rgb(10,70,10);
+
+    /* variabili colori e font */
+    --color-primary: lightblue;
+    --color-secundary: violet;
+    --color-dark: indigo;
+    --color-light: lightgreen;
+    --color-float-left: purple;
+    --color-float-right: rgb(38, 220, 38);
+
+    --font-s: 1rem;
+    --font-xl: 2rem;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+/*······································*/
+
+.body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: var(--color-primary);
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+}
+
+.left{
+ float: left;
+ background-color: var(--color-float-left);
+}
+.right{
+ float: right;
+ background-color: var(--color-float-right);
+}
+
+.header{
+    /* sticky: se va a ver todo su contenido */
+    position: sticky;
+    top: 0;
+    background: darkslateblue;
+    color: whitesmoke;
+    text-align: center;
+    padding: 10px;
+    /* z-index: nivel donde se queda ( > delante / < atrás) */
+    z-index: 0;
+}
+
+.fixed{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-weight: bold;
+    color: blanchedalmond;
+    /* important para dar prioridad total a ese parametros */
+    background-color:deeppink !important;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.absolute{
+    /* se pone encima de lo que sea, a la izquierda, ignora los elementos */
+    position: absolute;
+
+    /* se pone al lado, respeta los elementos
+    position: relative; */
+}
+

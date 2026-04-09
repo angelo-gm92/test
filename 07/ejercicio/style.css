@@ -1,0 +1,88 @@
+body{
+    background-color: cadetblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body:hover{
+    background-color: indigo;
+    color: blanchedalmond;
+}
+
+.title{
+    color: whitesmoke;
+    animation: plane 5s infinite;
+}
+
+@keyframes plane{
+    0%{transform: translateX(-200%)}
+    50%{transform: translateX(0)}
+    100%{transform: translateX(200%)}
+}
+
+.box1{
+    float: right;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: chartreuse;
+    animation: box1 3s infinite;
+}
+
+@keyframes box1{
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg) scale(1,1); }
+}
+
+.box2{
+    float: right;
+    padding: 10px;
+    border-radius: 10px;
+    background-color:brown;
+    color: rgb(246, 255, 0);
+    animation: box2 5s infinite;
+}
+
+.box2:hover{
+    color: blueviolet;
+    background-color: chartreuse;
+}
+
+@keyframes box2{
+    from { transform: scale(1.5); }
+    to { transform: scale(0); }
+}
+
+.botoncito{
+    position: fixed;
+    bottom: 45px;
+    left: 15px;
+    font-weight: bold;
+    color: blanchedalmond;
+    background-color:deeppink;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.botoncito:hover{
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    color: black;
+    background-color: black;
+}
+
+.box3{
+    float: left;
+    padding: 10px;
+    height: 100px;
+    border-radius: 10px;
+    background-color:green;
+    color:pink;
+    animation: bounce infinite;
+    animation-duration: 5s;
+}
+
+
+

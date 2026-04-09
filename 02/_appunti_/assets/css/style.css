@@ -1,0 +1,63 @@
+:root{
+    --color-primary: #212121;
+    --color-secondary: rgb(20, 65, 137);
+    --color-success: rgb(16, 191, 0);
+    --color-fail: rgb(199, 35, 35);
+
+    /* fuentes */
+    --font-primary: "Montserrat", sans-serif;
+
+    /* tamaños */
+    --font-size-sm: 1 rem;
+    --font-size-md: 1.5 rem;
+    --font-size-lg: 1.7 rem;
+    --font-size-xl: 2 rem;
+}
+
+/* asterisco por todo el contenido */
+*{ 
+    margin: 1;
+    padding: 1;
+    box-sizing: border-box;
+}
+
+html{
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: var(--font-primary);
+    font-weight:bold;
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    background-color: var(--color-light);
+}
+
+video,
+input,
+button,
+textarea,
+select{
+    list-style: none;
+}
+ul,
+ol,
+a{
+    text-decoration: none;
+    color: inherit;
+}
+button{
+    cursor: pointer;
+    background-color: var(--color-secondary);
+}
+
+article,
+aside,
+footer,
+header,
+nav,
+section{
+    display: block;
+}
+

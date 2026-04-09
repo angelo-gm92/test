@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+            width: 100%;
+            height: 100vh;
+            /*así se controla la anchura */
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .container{
+            /* flex hace que sea auto-responsivo */
+            display: flex;
+            flex-wrap: wrap;
+            /* predeterminado row, pero se puede cambiar */
+            flex-direction: row;
+        }
+
+        .caja{
+            width: 128px;
+            height: 128px;
+            background-color: blue;
+            border-radius: 15px;
+            margin: 10px;
+        }
+
+        nav{
+            padding: 5px;
+            float: left;
+            width: 30vw;
+        }
+
+        /*para decidir como comportarse según el tamaño de la pantalla */
+        /*tablet*/
+        @media (max-width: 768px){
+            .caja{
+                background-color: brown;
+            }
+            body{
+                background-color: green;
+            }
+
+            nav{
+                width: 9vw;
+            }
+
+            ul{
+                display: none;
+            }
+        }
+
+        img{
+            width: 95%;
+            height: 95%;
+            border-radius: 15px;
+        }
+
+        /*movil*/
+        @media (max-width: 480px){
+            body{
+                background-color: chocolate;
+            }
+
+
+        }
+
+        nav{
+            background-color: aqua;
+        }
+
+        footer{
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        Menu
+        <ul>
+            <li href="#">hacer esto</li>
+            <li href="#">fare quest'altro</li>
+            <li href="#">hacer otra cosa</li>
+            <li href="#">menja una poma</li>
+            <li href="#">abrir cosas</li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="caja"></div>
+        <div class="caja"></div>
+        <div class="caja"></div>
+        <div class="caja"></div>
+        <div class="caja"><img src="https://picsum.photos/128/128?1"></div>
+        <div class="caja"><img src="https://picsum.photos/128/128?2"></div>
+    </div>
+
+    <footer>
+        made in Angelandia
+    </footer>
+</body>
+</html>

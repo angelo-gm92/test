@@ -1,0 +1,66 @@
+body{
+    margin: 0%;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+}
+
+.box1{
+    width: 256px;
+    height: 256px;
+    background-color: dodgerblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: bisque;
+    border-radius: 25px;
+    /* cualquier cambio tardará x segundos */
+    transition: 1s;
+    
+    animation: girar 10s linear infinite;
+}
+
+.box1:hover{
+    background-color: pink;
+    color: darkgreen;
+    font-size: xx-large;
+    transform: scale(1.2) rotate(5deg);
+}
+
+.box2{
+    width: 128px;
+    height: 128px;
+    background-color: darkgreen;
+    position: absolute;
+    border-radius: 100%;
+    animation: mover 5s infinite;
+}
+
+.box3{
+    width: 128px;
+    height: 128px;
+    background-color:coral;
+    position: absolute;
+    border-radius: 100%;
+    animation: flipOutX 3s infinite;
+}
+
+@keyframes mover{
+    0% {transform: translateY(0);}
+    50% {transform: translateY(-256px);}
+    100% {transform: translateY(0);}
+}
+
+@keyframes girar{
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg) scale(2);
+    }
+}
+
+

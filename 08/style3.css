@@ -1,0 +1,89 @@
+body{
+    display: flex;
+}
+
+.box1 {
+    float: left;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border: 2px solid black;
+}
+
+.contenedor1{
+  float: right;
+}
+
+.box2 {
+    float: right;
+    width:50px;
+    height: 50px;
+    background-color: yellow;
+    border: 2px solid black;
+}
+
+.box3 {
+    float: right;
+    width:23.25px;
+    height: 47px;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.box3_2 {
+    float: right;
+    width:23.25px;
+    height: 47px;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.cont_rab{
+    float: right;
+}
+.contenedor3{
+    float: left;
+}
+.cuadro{
+    flex-wrap: wrap;
+    flex-direction: column;
+    border: 2px solid black;
+}
+
+.box4 {
+    float: left;
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border: 2px solid black;
+}
+
+.box5 {
+    width:47px;
+    height:23.5px;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.contenedor4{
+    float: right;
+}
+.box6{
+    width:50px;
+    height:23.5px;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.box7{
+    width:50px;
+    height:23.5px;
+    background-color: blue;
+    border: 2px solid black;
+}
+
+.cont_nba{
+    position: absolute;
+    top: 112px;
+    border: 2px solid black;
+}

@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f6f9;
+    color: #333;
+}
+
+/* HEADER */
+header {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* NAV */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background: #34495e;
+    padding: 1rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* SECCIONES */
+section {
+    padding: 2rem;
+}
+
+h2 {
+    margin-bottom: 1rem;
+}
+
+/* TARJETAS */
+.card {
+    background: white;
+    padding: 1rem;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* CONTENEDOR FLEX */
+.container {
+    display: flex;
+    background: #ddd;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+/* CAJAS */
+.box {
+    background: #3498db;
+    color: white;
+    padding: 20px;
+    margin: 5px;
+    border-radius: 8px;
+}
+
+/* EJEMPLOS */
+
+/* CENTRADO */
+.center {
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+/* SPACE BETWEEN */
+.space {
+    justify-content: space-between;
+}
+
+/* WRAP */
+.wrap {
+    flex-wrap: wrap;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #2c3e50;
+    color: white;
+}
