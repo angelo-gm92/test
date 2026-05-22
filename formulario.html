@@ -167,29 +167,30 @@
       {
         question: "Cuando aprendes algo complejo:",
         options: [
-          "Necesito representaciones visuales",
-          "Prefiero expliaciones verbales",
-          "Necesito practicarlo directamente",
-          "Necesito comprender toda la lógica"
+          { text: "Necesito representaciones visuales", rubro: "visual" },
+          { text: "Prefiero explicaciones verbales", rubro: "auditivo" },
+          { text: "Necesito practicarlo directamente", rubro: "kinestesico" },
+          { text: "Necesito comprender toda la lógica", rubro: "analitico" }
         ]
       },
 
       {
         question: "Cuando resuelves problemas:",
         options: [
-          "Visualizo situaciones.",
-          "Converso posibles soluciones.",
-          "Experimento disitintas opciones.",
-          "Analizo patrones y estructuras."
+          { text: "Visualizo situaciones.", rubro: "visual" },
+          { text: "Converso posibles soluciones.", rubro: "auditivo" },
+          { text: "Experimento distintas opciones.", rubro: "experiencial" },
+          { text: "Analizo patrones y estructuras.", rubro: "analitico" }
         ]
       },
 
       {
-        question: "Cuando resuelves problemas:",
+        question: "¿Qué describe mejor tu forma de aprender?",
         options: [
-          "Sí",
-          "No",
-          "Solo algunas"
+          { text: "Muy visual", rubro: "visual" },
+          { text: "Muy verbal", rubro: "auditivo" },
+          { text: "Muy práctica", rubro: "experiencial" },
+          { text: "Muy lógica", rubro: "analitico" }
         ]
       }
     ];
@@ -216,10 +217,17 @@
         const btn = document.createElement("button");
 
         btn.classList.add("option");
-        btn.textContent = option;
+        btn.textContent = option.text;
 
         btn.addEventListener("click", () => {
-          answers.push(option);
+
+          // Corregido: Suma un punto al rubro dinámicamente
+          if (puntajes[option.rubro] !== undefined) {
+            puntajes[option.rubro]++;
+          }
+
+          // btn.addEventListener("click", () => {
+          //   answers.push(option);
 
           cardEl.classList.add("fade-out");
 
@@ -241,17 +249,39 @@
     }
 
     function showResult() {
+      cardEl.classList.remove("fade-out");
       cardEl.innerHTML = `
         <div class="result">
-          <h1>✅ Formulario completado</h1>
-          <p>Gracias por responder.</p>
-        </div>
-      `;
+          <h1>Formulario completado</h1>
+          <p>Gracias por responder.</p> 
+         <button type="button" class="btn-resultado" onclick="resultado()">Ver resultado</button>         
+<div id="nota"></div>
+</div>
+`;
+    }
+
+
+    function resultado() {
+      const notaEl = document.getElementById("nota");
+      let HTMLResultados = `<ul class="notas-lista">`;
+
+      for (const rubro in puntajes) {
+        HTMLResultados += `
+  <li>
+      <strong>${rubro}:</strong>
+      <span>${puntajes[rubro]} pts</span>
+    </li>`;
+      }
+
+      HTMLResultados += `</ul>`;
+      notaEl.innerHTML = HTMLResultados;
+
+      const btn = document.querySelector(".btn-resultado");
+      if (btn) btn.style.display = "none";
     }
 
     renderQuestion();
   </script>
-
 </body>
 
 </html>
