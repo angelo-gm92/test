@@ -1,0 +1,28 @@
+body {
+    font-family: Arial;
+    background: #f4f4f4;
+}
+
+.container {
+    margin: auto;
+    background: white;
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 10px;
+}
+
+#barra-seleccion{
+    width: 512px;
+}
+
+#barra-seleccion>input{
+    width: 80%;
+    margin-left: 10%;
+}
+
+#leyendas{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 14px;     
+}
