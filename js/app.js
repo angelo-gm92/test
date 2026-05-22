@@ -38,21 +38,12 @@ questions_2.forEach(question => {
                 <h3>${question.text}</h3>
                 
                 <div id ="box-${question.id}">
-
-                    <input type="radio" name="box-${question.id}" id="0">
-                    <label>${question.answers[0]}</label>
-                    <br>
-                    <input type="radio" name="box-${question.id}" id="1">
-                    <label>${question.answers[1]}</label>
-                    <br>
-                    <input type="radio" name="box-${question.id}" id="2">
-                    <label>${question.answers[2]}</label>
-                    <br>
-                    <input type="radio" name="box-${question.id}" id="3">
-                    <label>${question.answers[3]}</label>
-                    <br>
-                    
-
+                    <div id="pregunta">
+                        <div class="respuestas-box" name="box-${question.id}">${question.answers[0]}</div>
+                        <div class="respuestas-box" name="box-${question.id}">${question.answers[1]}</div>
+                        <div class="respuestas-box" name="box-${question.id}">${question.answers[2]}</div>
+                        <div class="respuestas-box" name="box-${question.id}">${question.answers[3]}</div>
+                    </div>
                 </div>
 
             </div>
