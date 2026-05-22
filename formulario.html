@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,7 +23,7 @@
       color: #111827;
     }
 
-    .containerpreguntageneral {
+    .container_questions {
       width: 90%;
       max-width: 500px;
     }
@@ -31,7 +32,7 @@
       background: white;
       padding: 40px;
       border-radius: 24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       transition: all 0.3s ease;
     }
 
@@ -88,11 +89,53 @@
       color: #6b7280;
     }
 
+    /* Estilos para el botón de resultado final */
+    .btn-resultado {
+      border: none;
+      background: #2563eb;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-top: 15px;
+    }
+
+    .btn-resultado:hover {
+      background: #1d4ed8;
+      transform: scale(1.02);
+    }
+
+    /* Lista de notas por rubro */
+    .notas-lista {
+      text-align: left;
+      margin-top: 25px;
+      background: #f8fafc;
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .notas-lista li {
+      list-style: none;
+      padding: 8px 0;
+      border-bottom: 1px solid #edf2f7;
+      display: flex;
+      justify-content: space-between;
+      text-transform: capitalize;
+    }
+
+    .notas-lista li:last-child {
+      border-bottom: none;
+    }
   </style>
 </head>
+
 <body>
 
-  <div class="containerpreguntageneral">
+  <div class="container_questions">
     <div class="card" id="card">
 
       <div class="progress" id="progress">
@@ -109,6 +152,17 @@
   </div>
 
   <script>
+
+    // Objeto para acumular los puntos de cada rubro
+    const puntajes = {
+      analitico: 0,
+      visual: 0,
+      experiencial: 0,
+      auditivo: 0,
+      kinestesico: 0
+    };
+
+
     const questions = [
       {
         question: "Cuando aprendes algo complejo:",
@@ -199,4 +253,5 @@
   </script>
 
 </body>
+
 </html>
