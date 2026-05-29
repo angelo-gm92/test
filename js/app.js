@@ -1,81 +1,75 @@
-
-
-
-// const container =
-//     document.getElementById("question-container");
-
-// // ------ FORMATO A -----------------------------------------------------------------
-// procesamiento_informacion.forEach(question => {
-//     container.innerHTML += `
-//         <div class="question">
-//             <h3>${question.text}</h3>
-            
-//             <div id="barra-seleccion">
-
-//                 <input
-//                     type="range"
-//                     id="q-${question.id}"
-//                     name="rating"
-//                     min="1"
-//                     max="5"
-//                 />
-
-//                 <div id="leyendas">
-//                     <span style="width: 20%; text-align: center;">Muy poco</span>
-//                     <span style="width: 20%; text-align: center;">Poco</span>
-//                     <span style="width: 20%; text-align: center;">Medio</span>
-//                     <span style="width: 20%; text-align: center;">Mucho</span>
-//                     <span style="width: 20%; text-align: center;">Muchísimo</span>
-//                 </div>
-
-//             </div>
-//         </div>
-//     `;
-// });
-
-// // ------ FORMATO B -----------------------------------------------------------------
-// questions_2.forEach(question => {
-//     if (question.dimension === "situation") {
-//         container.innerHTML += `
-//             <div class="question">
-//                 <h3>${question.text}</h3>
-                
-//                 <div id ="box-${question.id}">
-//                     <div id="pregunta">
-//                         <div class="respuestas-box" name="box-${question.id}">${question.answers[0]}</div>
-//                         <div class="respuestas-box" name="box-${question.id}">${question.answers[1]}</div>
-//                         <div class="respuestas-box" name="box-${question.id}">${question.answers[2]}</div>
-//                         <div class="respuestas-box" name="box-${question.id}">${question.answers[3]}</div>
-//                     </div>
-//                 </div>
-
-//             </div>
-//         `;
-//     }
-// });
-
 const startTestBtn = document.getElementById("startTestBtn");
 const homePage = document.querySelector(".home");
 const testPage = document.querySelector(".test");
+const questionContainer = document.getElementById("question-container");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
 
-startTestBtn?.addEventListener("click", () => {
-    homePage?.classList.add("hidden");
-    if (testPage) {
-        testPage.classList.remove("hidden");
+let currentQuestion = 0;
+const answers = [];
+
+function renderQuestion() {
+    if (!questionContainer || questions.length === 0) {
+        return;
     }
-});
 
-let answers = [];
-function saveAnswers() {
-    questions.forEach(question => {
-        let value =
-            document.getElementById(
-                `q-${question.id}`
-            ).value;
-        answers.push({
-            questionId: question.id,
-            answer: Number(value),
-            dimension: question.dimension
+    const question = questions[currentQuestion];
+    const selectedAnswer = answers[currentQuestion];
+
+    questionContainer.innerHTML = `
+        <h2>${question.text}</h2>
+        <div class="answers-list">
+            ${question.answers.map((answer, index) => `
+                <button type="button" class="answer-button ${selectedAnswer === index ? 'selected' : ''}" data-index="${index}">
+                    ${answer}
+                </button>
+            `).join('')}
+        </div>
+    `;
+
+    const buttons = questionContainer.querySelectorAll(".answer-button");
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            const index = Number(button.dataset.index);
+            answers[currentQuestion] = index;
+            renderQuestion();
         });
+    });
+
+    prevBtn.disabled = currentQuestion === 0;
+    nextBtn.disabled = answers[currentQuestion] === undefined;
+    nextBtn.textContent = currentQuestion === questions.length - 1 ? "Finalizar" : "Siguiente";
+}
+
+if (startTestBtn) {
+    startTestBtn.addEventListener("click", () => {
+        if (homePage) homePage.classList.add("hidden");
+        if (testPage) testPage.classList.remove("hidden");
+        renderQuestion();
+    });
+}
+
+if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+        if (currentQuestion > 0) {
+            currentQuestion -= 1;
+            renderQuestion();
+        }
+    });
+}
+
+if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+        if (answers[currentQuestion] === undefined) {
+            return;
+        }
+
+        if (currentQuestion < questions.length - 1) {
+            currentQuestion += 1;
+            renderQuestion();
+        } else {
+            alert("Test terminado. Revisa la consola para ver las respuestas.");
+            console.log("Respuestas:", answers);
+        }
     });
 }
