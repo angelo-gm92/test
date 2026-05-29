@@ -9,22 +9,28 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>Nexus Psychometric Tests</h1>
-        <div id="question-container">
+    <main class="home page">
+        <div id="logo">
+            <img src="./assets/images/NTEC_0526_logo completo.png" alt="Logo" class="logo">
         </div>
-        <div class="buttons">
-            <button id="prevBtn">
-                Anterior
-            </button>
-            <button id="nextBtn">
-                Siguiente
-            </button>
+        <div id="start">
+            <h1>Nexus Psychometric Tests</h1>
+            <br>
+            <br>
+            <button id="startTestBtn" class="primary-btn">Empezar test</button>
         </div>
+    </main>
 
-        
-        
-    </div>
+    <section class="test page hidden">
+        <div class="container">
+            <h1>Nexus Psychometric Tests</h1>
+            <div id="question-container"></div>
+            <div class="buttons">
+                <button id="prevBtn">Anterior</button>
+                <button id="nextBtn">Siguiente</button>
+            </div>
+        </div>
+    </section>
 
     <script src="./js/questions.js"></script>
     <script src="./js/app.js"></script>
