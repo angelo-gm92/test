@@ -7,20 +7,24 @@ const nextBtn = document.getElementById("nextBtn");
 
 let currentQuestion = 0;
 const answers = [];
+let questionStartTime = 0;
 
 function renderQuestion() {
     if (!questionContainer || questions.length === 0) {
         return;
     }
 
+    // Registrar el tiempo de inicio de la pregunta
+    questionStartTime = Date.now();
+
     const question = questions[currentQuestion];
-    const selectedAnswer = answers[currentQuestion];
+    const selectedAnswerObj = answers[currentQuestion];
 
     questionContainer.innerHTML = `
         <h2>${question.text}</h2>
         <div class="answers-list">
             ${question.answers.map((answer, index) => `
-                <button type="button" class="answer-button ${selectedAnswer === index ? 'selected' : ''}" data-index="${index}">
+                <button type="button" class="answer-button ${selectedAnswerObj?.answer === index ? 'selected' : ''}" data-index="${index}">
                     ${answer}
                 </button>
             `).join('')}
@@ -31,7 +35,11 @@ function renderQuestion() {
     buttons.forEach(button => {
         button.addEventListener("click", () => {
             const index = Number(button.dataset.index);
-            answers[currentQuestion] = index;
+            const timeSpent = Date.now() - questionStartTime;
+            answers[currentQuestion] = {
+                answer: index,
+                time: timeSpent
+            };
             renderQuestion();
         });
     });
@@ -69,7 +77,23 @@ if (nextBtn) {
             renderQuestion();
         } else {
             alert("Test terminado. Revisa la consola para ver las respuestas.");
-            console.log("Respuestas:", answers);
+            console.log("Respuestas (objeto):", answers);
+            console.log("Respuestas formateadas:", answers.map((item, i) => ({
+                pregunta: i + 1,
+                respuesta: questions[i].results[item.answer],
+                tiempo_ms: item.time,
+                tiempo_s: (item.time / 1000).toFixed(2)
+            })));
         }
     });
+}
+
+function calculaResultado(respuestas){
+
+    let visual = 0;
+    let auditivo = 0;
+    let kinestesico = 0;
+    let analitico = 0;
+    
+
 }

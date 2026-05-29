@@ -675,10 +675,10 @@ const questions = [
             "Intento entender la lógica"
         ],
         results: [
-            "visual",
-            "auditivo",
-            "kinestesico",
-            "analitico"
+            "visual-5",
+            "auditivo-5",
+            "kinestesico-5",
+            "analitico-5"
         ]
     },
     {
@@ -691,10 +691,10 @@ const questions = [
             "Analizar estructura y patrones"
         ],
         results: [
-            "visual",
-            "auditivo",
-            "experiencial",
-            "analitico"
+            "visual-5",
+            "auditivo-5",
+            "experiencial-5",
+            "analitico-5"
         ]
     },
     {
@@ -707,10 +707,10 @@ const questions = [
             "Necesito entender el sistema completo"
         ],
         results: [
-            "visual",
-            "auditivo",
-            "kinestesico",
-            "analitico"
+            "visual-5",
+            "auditivo-5",
+            "kinestesico-5",
+            "analitico-5"
         ]
     },
     {
@@ -723,10 +723,10 @@ const questions = [
             "Analitica"
         ],
         results: [
-            "visual",
-            "auditivo-analitico",
-            "kinestesico",
-            "analitico"
+            "visual-5",
+            "auditivo-3_analitico-2",
+            "kinestesico-5",
+            "analitico-5"
         ]
     },
     {
@@ -739,10 +739,10 @@ const questions = [
             "Organizo información lógicamente"
         ],
         results: [
-            "visual",
-            "auditivo",
-            "kinestesico",
-            "analitico"
+            "visual-5",
+            "auditivo-5",
+            "kinestesico-5",
+            "analitico-5"
         ]
     },
     {
@@ -755,10 +755,10 @@ const questions = [
             "Resolver problemas"
         ],
         results: [
-            "visual",
-            "auditivo",
-            "esperiencial",
-            "analitico"
+            "visual-5",
+            "auditivo-5",
+            "esperiencial-5",
+            "analitico-5"
         ]
     },
     {
@@ -771,10 +771,10 @@ const questions = [
             "Intento comprender fundamentos"
         ],
         results: [
-            "visual",
-            "auditivo",
-            "experiencial",
-            "analitico"
+            "visual-5",
+            "auditivo-5",
+            "experiencial-5",
+            "analitico-5"
         ]
     },
     {
@@ -787,10 +787,10 @@ const questions = [
             "Comprender profundamente"
         ],
         results: [
-            "visual",
-            "auditivo",
-            "experiencial",
-            "analitico"
+            "visual-5",
+            "auditivo-5",
+            "experiencial-5",
+            "analitico-5"
         ]
     },
     {
@@ -803,10 +803,10 @@ const questions = [
             "Analizo cómo funciona"
         ],
         results: [
-            "visual",
-            "auditivo",
-            "kinestesico",
-            "analitico"
+            "visual-5",
+            "auditivo-5",
+            "kinestesico-5",
+            "analitico-5"
         ]
     },
     {
@@ -819,10 +819,10 @@ const questions = [
             "Analizo causas profundas"
         ],
         results: [
-            "visual",
-            "social",
-            "experiencial",
-            "analitico"
+            "visual-4",
+            "social-5",
+            "experiencial-5",
+            "analitico-5"
         ]
     },
     {
@@ -835,10 +835,10 @@ const questions = [
             "Estructurado y analítico"
         ],
         results: [
-            "visual",
-            "social",
-            "kinestesico",
-            "analitico"
+            "visual-5",
+            "social-5",
+            "kinestesico-5",
+            "analitico-5"
         ]
     },
     {
@@ -851,10 +851,10 @@ const questions = [
             "Analitico"
         ],
         results: [
-            "experiencial",
-            "social",
-            "kinestesico",
-            "analitico"
+            "experiencial-5",
+            "social-5",
+            "kinestesico-5",
+            "analitico-5"
         ]
     },
     {
@@ -867,10 +867,10 @@ const questions = [
             "analizo perspectivas diferentes"
         ],
         results: [
-            "visual",
-            "auditivo",
-            "social",
-            "analitico"
+            "visual-5",
+            "auditivo-5",
+            "social-5",
+            "analitico-5"
         ]
     },
     {
@@ -883,10 +883,10 @@ const questions = [
             "Analizo estructura conceptual"
         ],
         results: [
-            "visual",
-            "auditivo",
-            "kinestesico",
-            "analitico"
+            "visual-5",
+            "auditivo-5",
+            "kinestesico-5",
+            "analitico-5"
         ]
     },
     {
@@ -899,10 +899,10 @@ const questions = [
             "Debatir conceptos"
         ],
         results: [
-            "social",
-            "kinestesico",
-            "auditivo",
-            "analitico"
+            "social-5",
+            "kinestesico-5",
+            "auditivo-5",
+            "analitico-5"
         ]
     },
     {
@@ -915,15 +915,15 @@ const questions = [
             "Investigo profundamente"
         ],
         results: [
-            "visual",
-            "auditivo",
-            "experiencial",
-            "autodidacta"
+            "visual-5",
+            "auditivo-5",
+            "experiencial-5",
+            "autodidacta-5"
         ]
     },
     {
         id: 117,
-        text: "¿Qué describe mejor tu aprendizaje?",
+        text: "Cuando tienes dudas:",
         answers: [
             "Busco referencias visuales",
             "Pregunto a alguien",
@@ -931,10 +931,10 @@ const questions = [
             "Investigo lógica y teoria"
         ],
         results: [
-            "visual",
-            "social",
-            "experiencial",
-            "analitico"
+            "visual-5",
+            "social-5",
+            "experiencial-5",
+            "analitico-5"
         ]
     },
     {
