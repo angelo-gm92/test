@@ -250,13 +250,14 @@ body {
 }
 
 .answer-button:hover {
-    background: #111827;
-    color: white;
+    background: #e0e7ff;
+    color: gray;
     transform: translateY(-2px);
 }
 
 .answer-button.selected {
-    background: #e0e7ff;
+    background: #111827;
+    color: white;
     border: 1px solid #2563eb;
 }
 
