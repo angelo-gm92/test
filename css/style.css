@@ -71,6 +71,18 @@ body {
     margin-top: 12px;
 }
 
+.progress{
+width:100%;
+height: 20px;
+background:#ddd;
+}
+
+#bar{
+width:0%;
+height:100%;
+background:green;
+}
+
 .pregunta {
     display: flex;
     flex-direction: row;

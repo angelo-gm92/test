@@ -704,3 +704,11 @@ const questions_espejo_avanzadas = [
     "Necesito lógica y estructura para comprender realmente algo.",
     "Puedo utilizar herramientas aunque no comprenda cómo funcionan."
 ];
+
+
+function updateBar(current,total){
+let percent=
+(current/total*100)
+document.getElementById("bar")
+.style.width = percent + "%";
+}
