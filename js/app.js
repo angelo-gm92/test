@@ -90,10 +90,14 @@ if (nextBtn) {
 
 function calculaResultado(respuestas){
 
-    let visual = 0;
-    let auditivo = 0;
-    let kinestesico = 0;
     let analitico = 0;
-    
+    let auditivo = 0;
+    let autodidacta = 0;
+    let experiencial = 0;
+    let kinestesico = 0;
+    let social = 0;
+    let visual = 0;
+
+    /* calculo de los resultados y suma a su estilo correspondiente */
 
 }

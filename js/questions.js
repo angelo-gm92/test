@@ -677,6 +677,25 @@ const questions = [
         results: [
             "visual-5",
             "auditivo-5",
+            "kinestesico-5_kinestesico-5",
+            "analitico-5"
+        ]
+    }
+];
+
+const questionsz = [
+    {
+        id: 101,
+        text: "Cuando aprendes algo nuevo normalmente:",
+        answers: [
+            "Necesito verlo representado",
+            "Prefiero escucharlo explicado",
+            "Necesito practicarlo",
+            "Intento entender la lógica"
+        ],
+        results: [
+            "visual-5",
+            "auditivo-5",
             "kinestesico-5",
             "analitico-5"
         ]
