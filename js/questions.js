@@ -1336,10 +1336,27 @@ const questions_espejo_avanzadas = [
     "Puedo utilizar herramientas aunque no comprenda cómo funcionan."
 ];
 
+const progressEl = document.getElementById("progress");
+const progressText =
+document.getElementById("progress-text");
 
-function updateBar(current,total){
-let percent=
-(current/total*100)
-document.getElementById("bar")
-.style.width = percent + "%";
+function updateBar() {
+
+  const total = questions.length;
+
+  const percent =
+    ((currentQuestion + 1) / total) * 100;
+
+  document.getElementById("bar")
+    .style.width = percent + "%";
+
+  progressText.textContent =
+    `${Math.round(percent)}% completado`;
 }
+
+// function updateBar(current,total){
+// let percent=
+// (current/total*100)
+// document.getElementById("bar")
+// .style.width = percent + "%";
+// }
