@@ -1318,7 +1318,7 @@ const answers_espejo = [
     "Depende",
     "Bastante parecido",
     "Me representa",
-    "muchísimo" 
+    "muchísimo"
 ];
 
 const questions_espejo = [
@@ -1357,20 +1357,21 @@ const questions_espejo_avanzadas = [
 
 const progressEl = document.getElementById("progress");
 const progressText =
-document.getElementById("progress-text");
+    document.getElementById("progress-text");
 
-function updateBar() {
 
-  const total = questions.length;
+function updateBar(currentQuestion) {
 
-  const percent =
-    ((currentQuestion + 1) / total) * 100;
+    const total = questions.length;
 
-  document.getElementById("bar")
-    .style.width = percent + "%";
+    const percent =
+        (currentQuestion / total) * 100;
 
-  progressText.textContent =
-    `${Math.round(percent)}% completado`;
+    document.getElementById("bar")
+        .style.width = percent + "%";
+
+    progressText.textContent =
+        `${Math.round(percent)}% completado`;
 }
 
 // function updateBar(current,total){
