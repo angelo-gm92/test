@@ -23,50 +23,31 @@
 
     <section class="test page hidden">
         <div class="container">
-            <!-- <h1>Nexus Psychometric Tests</h1> -->
+
             <div id="question-container"></div>
             <div class="buttons">
-                <button id="prevBtn">Anterior</button>
-                <button id="nextBtn">Siguiente</button>
+                <button id="prevBtn" onclick="updateBar(currentQuestion-1)">Anterior</button>
+                <button id="nextBtn" onclick="updateBar(currentQuestion+1)">Siguiente</button>
             </div>
+
+            <div class="progress-wrapper">
+
+
+                <div class="progress-container">
+                    <div class="progress-fill" id="bar"></div>
+                </div>
+
+                <p class="progress-text" id="progress-text">
+                    0% completado
+                </p>
+
+            </div>
+
         </div>
     </section>
 
 
-    <!-- BARRA DE PROGRESO DE LA PRUEBA -->
 
-    <!-- 
-<div class="container">
-    <h2>Progreso</h2>
-
-    <div id="barra-seleccion">
-        <div class="progressE1">
-            <div class="progressE1" id="progressE1-fill"></div>
-        </div>
-
-        <p id="progress-text">0% completado</p>
-    </div>
-
-    <div id="question-container"></div>
-
-   </div> -->
-
-
-    <div class="progress-wrapper">
-
-        <p class="progress-title">
-            Progreso
-        </p>
-
-        <div class="progress-container">
-            <div class="progress-fill" id="bar"></div>
-        </div>
-
-        <p class="progress-text" id="progress-text">
-            0% completado
-        </p>
-
-    </div>
 
 
 

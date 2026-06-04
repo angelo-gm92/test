@@ -27,6 +27,7 @@ body {
         opacity: 0;
         transform: translateY(-30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -38,6 +39,7 @@ body {
         opacity: 0;
         transform: scaleX(0.8) scaleY(0.9) translateX(40px);
     }
+
     to {
         opacity: 1;
         transform: scaleX(1) scaleY(1) translateX(0);
@@ -49,6 +51,7 @@ body {
         width: 0;
         opacity: 0;
     }
+
     to {
         width: 100%;
         opacity: 1;
@@ -56,10 +59,14 @@ body {
 }
 
 @keyframes blink {
-    0%, 50% {
+
+    0%,
+    50% {
         border-right-color: transparent;
     }
-    51%, 100% {
+
+    51%,
+    100% {
         border-right-color: #111827;
     }
 }
@@ -68,6 +75,7 @@ body {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -287,23 +295,18 @@ background:green;
 /* correcciòn IA empieza aqui */
 
 .progress {
-  margin-bottom: 30px;
-  font-size: 14px;
-  color: #6b7280;
-}
-
-.progress-wrapper{
     margin-bottom: 30px;
+    font-size: 14px;
+    color: #6b7280;
 }
 
-.progress-title{
-    font-size: 15px;
-    font-weight: 600;
-    color: #111827;
-    margin-bottom: 10px;
+.progress-wrapper {
+    margin-top: 60px;
+    /* margin-bottom: 30px; */
 }
 
-.progress-container{
+
+.progress-container {
     width: 100%;
     height: 14px;
     background: #e5e7eb;
@@ -312,20 +315,21 @@ background:green;
     display: center;
 }
 
-.progress-fill{
+.progress-fill {
     width: 0%;
     height: 100%;
-    background: linear-gradient(90deg,#3f51b5,#5c6bc0);
+    background: linear-gradient(90deg, #3f51b5, #5c6bc0);
     border-radius: 999px;
     transition: width .4s ease;
 }
 
-.progress-text{
+.progress-text {
     margin-top: 10px;
     font-size: 14px;
     color: #6b7280;
     text-align: right;
 }
+
 /* correcciòn IA termina aqui */
 
 .pregunta {
