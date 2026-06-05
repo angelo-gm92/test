@@ -1,23 +1,38 @@
-const startTestBtn = document.getElementById("startTestBtn");
+const startBasicTestBtn = document.getElementById("startBasicTestBtn");
+const startAdvancedTestBtn = document.getElementById("startAdvancedTestBtn");
+const startCompleteTestBtn = document.getElementById("startCompleteTestBtn");
+const botonesEmpezarTest = document.querySelectorAll(".primary-btn");
 const homePage = document.querySelector(".home");
 const testPage = document.querySelector(".test");
 const questionContainer = document.getElementById("question-container");
+const resultContainer = document.getElementById("result-container");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
+const buttons = document.getElementById("buttons");
 
 let currentQuestion = 0;
 const answers = [];
 let questionStartTime = 0;
 
+// Activar el botón "empezar test" cuando termine la animación de entrada
+if (botonesEmpezarTest) {
+    setTimeout(() => {
+        botonesEmpezarTest.forEach(btn => {
+            btn.disabled = false;
+        });
+    }, 3500);
+}
+
 function renderQuestion() {
-    if (!questionContainer || questions.length === 0) {
+
+    if (!questionContainer || questions_basic.length === 0) {
         return;
     }
 
     // Registrar el tiempo de inicio de la pregunta
     questionStartTime = Date.now();
 
-    const question = questions[currentQuestion];
+    const question = questions_basic[currentQuestion];
     const selectedAnswerObj = answers[currentQuestion];
 
     questionContainer.innerHTML = `
@@ -36,8 +51,9 @@ function renderQuestion() {
         button.addEventListener("click", () => {
             const index = Number(button.dataset.index);
             const timeSpent = Date.now() - questionStartTime;
+            const answer = question.results[index];
             answers[currentQuestion] = {
-                answer: index,
+                answer: answer,
                 time: timeSpent
             };
             renderQuestion();
@@ -46,11 +62,12 @@ function renderQuestion() {
 
     prevBtn.disabled = currentQuestion === 0;
     nextBtn.disabled = answers[currentQuestion] === undefined;
-    nextBtn.textContent = currentQuestion === questions.length - 1 ? "Finalizar" : "Siguiente";
+    nextBtn.textContent = currentQuestion === questions_basic.length - 1 ? "Finalizar" : "Siguiente";
 }
 
-if (startTestBtn) {
-    startTestBtn.addEventListener("click", () => {
+// Evento para iniciar el test básico
+if (startBasicTestBtn) {
+    startBasicTestBtn.addEventListener("click", () => {
         if (homePage) homePage.classList.add("hidden");
         if (testPage) testPage.classList.remove("hidden");
         renderQuestion();
@@ -72,32 +89,80 @@ if (nextBtn) {
             return;
         }
 
-        if (currentQuestion < questions.length - 1) {
+        if (currentQuestion < questions_basic.length - 1) {
             currentQuestion += 1;
             renderQuestion();
         } else {
-            alert("Test terminado. Revisa la consola para ver las respuestas.");
-            console.log("Respuestas (objeto):", answers);
-            console.log("Respuestas formateadas:", answers.map((item, i) => ({
-                pregunta: i + 1,
-                respuesta: questions[i].results[item.answer],
-                tiempo_ms: item.time,
-                tiempo_s: (item.time / 1000).toFixed(2)
-            })));
+            calculaResultado(answers);
+            mostrarResultados();
+            ocultarBotones();
         }
     });
 }
 
-function calculaResultado(respuestas){
 
-    let analitico = 0;
-    let auditivo = 0;
-    let autodidacta = 0;
-    let experiencial = 0;
-    let kinestesico = 0;
-    let social = 0;
-    let visual = 0;
+let mapTypes = {
+    "analitico": 0,
+    "auditivo": 0,
+    "autodidacta": 0,
+    "experiencial": 0,
+    "kinestesico": 0,
+    "social": 0,
+    "visual": 0
+};
 
-    /* calculo de los resultados y suma a su estilo correspondiente */
+function calculaResultado(respuestas) {
 
+    respuestas.forEach((resp) => {
+
+        const respuesta_texto = resp.answer.toString();
+        const conjunto_respuestas = respuesta_texto.split("_");
+
+        if (conjunto_respuestas.length > 1) {
+            conjunto_respuestas.forEach((respuesta) => {
+                actualizaResultado(respuesta);
+            })
+        } else {
+            actualizaResultado(respuesta_texto);
+        }
+    })
+}
+
+function actualizaResultado(respuesta) {
+    const conjunto = respuesta.split('-');
+    const categoria = conjunto[0];
+    const valor = conjunto[1];
+    mapTypes[categoria] += parseInt(valor);
+}
+
+function mostrarResultados() {
+    if (questionContainer) {
+        questionContainer.classList.add("hidden");
+    }
+
+    if (!resultContainer) {
+        return;
+    }
+
+    resultContainer.classList.remove("hidden");
+    resultContainer.innerHTML = `
+        <div class="result-summary">
+            <h2>Resultados</h2>
+            <ul class="result-list">
+                <li><strong>Analítico: </strong> ${mapTypes.analitico}</li>
+                <li><strong>Auditivo: </strong> ${mapTypes.auditivo}</li>
+                <li><strong>Autodidacta: </strong> ${mapTypes.autodidacta}</li>
+                <li><strong>Experiencial: </strong> ${mapTypes.experiencial}</li>
+                <li><strong>Kinestésico: </strong> ${mapTypes.kinestesico}</li>
+                <li><strong>Social: </strong> ${mapTypes.social}</li>
+                <li><strong>Visual: </strong> ${mapTypes.visual}</li>
+            </ul>
+        </div>
+    `;
+}
+
+function ocultarBotones() {
+    if (buttons) {
+        buttons.classList.add("hidden");
+    }
 }
