@@ -98,7 +98,7 @@ const memoria_comprension = [
         results: [
             "visual",
             "auditivo",
-            "esperiencial",
+            "experiencial",
             "analitico"
         ]
     },
@@ -664,7 +664,7 @@ const dimension_analitica = [
 
 */
 
-const questions = [
+const questions_basic = [
     {
         id: 101,
         text: "Cuando aprendes algo nuevo normalmente:",
@@ -757,7 +757,7 @@ const questions = [
         results: [
             "visual-5",
             "auditivo-5",
-            "esperiencial-5",
+            "experiencial-5",
             "analitico-5"
         ]
     },
@@ -952,7 +952,11 @@ const questions = [
             "experiencial-5",
             "autodidacta-5_analitico-2"
         ]
-    },
+    }
+
+];
+
+const questions_advanced = [
     {
         id: 119,
         text: "Cuando intentas comprender algo complejo:",
@@ -1336,28 +1340,18 @@ const questions_espejo_avanzadas = [
     "Puedo utilizar herramientas aunque no comprenda cómo funcionan."
 ];
 
+// -- Barra de progreso --------------------------------------------------------------------------
 const progressEl = document.getElementById("progress");
-const progressText =
-    document.getElementById("progress-text");
-
+const progressText = document.getElementById("progress-text");
 
 function updateBar(currentQuestion) {
 
-    const total = questions.length;
+    const total = questions_basic.length; // TODO: solo para que funcione de momento con el test básico, luego hay que adaptarlo para que funcione con el avanzado también
 
-    const percent =
-        (currentQuestion / total) * 100;
+    const percent = (currentQuestion / total) * 100;
 
-    document.getElementById("bar")
-        .style.width = percent + "%";
+    document.getElementById("bar").style.width = percent + "%";
 
-    progressText.textContent =
-        `${Math.round(percent)}% completado`;
+    progressText.textContent = `${Math.round(percent)}% completado`;
 }
-
-// function updateBar(current,total){
-// let percent=
-// (current/total*100)
-// document.getElementById("bar")
-// .style.width = percent + "%";
-// }
+// FIN ---- Barra de progreso ---------------------------------------------------------------------

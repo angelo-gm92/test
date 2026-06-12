@@ -17,7 +17,9 @@
             <h1>Nexus Psychometric Test</h1>
             <br>
             <br>
-            <button id="startTestBtn" class="primary-btn">Empezar test</button>
+            <button id="startBasicTestBtn" class="primary-btn" disabled>Empezar test básico</button>
+            <button id="startAdvancedTestBtn" class="primary-btn" disabled>Empezar test avanzado</button>
+            <button id="startCompleteTestBtn" class="primary-btn" disabled>Empezar test completo</button>
         </div>
     </main>
 
@@ -25,7 +27,8 @@
         <div class="container">
 
             <div id="question-container"></div>
-            <div class="buttons">
+            <div id="result-container" class="hidden"></div>
+            <div class="buttons" id="buttons">
                 <button id="prevBtn" onclick="updateBar(currentQuestion-1)">Anterior</button>
                 <button id="nextBtn" onclick="updateBar(currentQuestion+1)">Siguiente</button>
             </div>
