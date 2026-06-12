@@ -25,7 +25,7 @@
 
     .container_questions {
       width: 90%;
-      max-width: 1000px;  /*para que el cuadro sea màs ancho*/
+      max-width: 1000px;
     }
 
     .card {
@@ -120,18 +120,50 @@
 
     .notas-lista li {
       list-style: none;
-      padding: 14px 0;
+      padding: 8px 0;
       border-bottom: 1px solid #edf2f7;
       display: flex;
-      justify-content: column;
-      gap: 6px;
+      justify-content: space-between;
+      text-transform: capitalize;
     }
-
-
 
     .notas-lista li:last-child {
       border-bottom: none;
     }
+
+.rubro-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.rubro-puntaje {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.rubro-texto {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.4;
+  display: flex;
+  
+  margin-bottom: 20px;
+}
+
+.text_description {
+  display: block;
+  margin-top: 10px;
+}
+.rubro-texto:last-of-type .text_description {
+  margin-bottom: 5px;
+}
   </style>
 </head>
 
@@ -263,25 +295,36 @@
     }
 
 
-    function resultado() {
-      const notaEl = document.getElementById("nota");
-      let HTMLResultados = `<ul class="notas-lista">`;
+   function resultado() {
+  const notaEl = document.getElementById("nota");
 
-      for (const rubro in puntajes) {
-        HTMLResultados += `
-  <li>
-      <strong>${rubro}:</strong>
-      <span>${puntajes[rubro]} pts</span>
-    </li>`;
-      }
+  const lorem = `
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+  `.trim();
 
-      HTMLResultados += `</ul>`;
-      notaEl.innerHTML = HTMLResultados;
+  let html = `<ul class="notas-lista">`;
 
-      const btn = document.querySelector(".btn-resultado");
-      if (btn) btn.style.display = "none";
-    }
+  for (const rubro in puntajes) {
+    html += `
+      
+        <div class="rubro-header">
+          <span>${rubro}</span>
+          <span class="rubro-puntaje">${puntajes[rubro]} pts</span>
+        </div>
 
+        <div class="rubro-texto">
+          <span class="text_description" >${lorem}</span>
+        </div>
+      
+    `;
+  }
+
+  html += `</ul>`;
+  notaEl.innerHTML = html;
+
+  const btn = document.querySelector(".btn-resultado");
+  if (btn) btn.style.display = "none";
+}
     renderQuestion();
   </script>
 </body>
