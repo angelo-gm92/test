@@ -1346,7 +1346,8 @@ const progressText = document.getElementById("progress-text");
 
 function updateBar(currentQuestion) {
 
-    const total = questions_basic.length; // TODO: solo para que funcione de momento con el test básico, luego hay que adaptarlo para que funcione con el avanzado también
+    const total = questions.length; 
+    console.log(`Pregunta ${currentQuestion} de ${total}`);
 
     const percent = (currentQuestion / total) * 100;
 

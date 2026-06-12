@@ -23,16 +23,16 @@ if (botonesEmpezarTest) {
     }, 3500);
 }
 
-function renderQuestion() {
+function renderQuestion(questions) {
 
-    if (!questionContainer || questions_basic.length === 0) {
+    if (!questionContainer || questions.length === 0) {
         return;
     }
 
     // Registrar el tiempo de inicio de la pregunta
     questionStartTime = Date.now();
 
-    const question = questions_basic[currentQuestion];
+    const question = questions[currentQuestion];
     const selectedAnswerObj = answers[currentQuestion];
 
     questionContainer.innerHTML = `
@@ -56,29 +56,61 @@ function renderQuestion() {
                 answer: answer,
                 time: timeSpent
             };
-            renderQuestion();
+            renderQuestion(questions);
         });
     });
 
     prevBtn.disabled = currentQuestion === 0;
     nextBtn.disabled = answers[currentQuestion] === undefined;
-    nextBtn.textContent = currentQuestion === questions_basic.length - 1 ? "Finalizar" : "Siguiente";
+    nextBtn.textContent = currentQuestion === questions.length - 1 ? "Finalizar" : "Siguiente";
+}
+
+let questions = [];
+
+function getQuestionsForTest(type) {
+    if (type === "basic") {
+        return [...questions_basic];
+    }
+
+    if (type === "advanced") {
+        return [...questions_advanced];
+    }
+
+    if (type === "complete") {
+        return [...questions_basic, ...questions_advanced];
+    }
+
+    return [];
+}
+
+function startTest(type) {
+    questions = getQuestionsForTest(type);
+
+    if (homePage) homePage.classList.add("hidden");
+    if (testPage) testPage.classList.remove("hidden");
+    renderQuestion(questions);
 }
 
 // Evento para iniciar el test básico
 if (startBasicTestBtn) {
-    startBasicTestBtn.addEventListener("click", () => {
-        if (homePage) homePage.classList.add("hidden");
-        if (testPage) testPage.classList.remove("hidden");
-        renderQuestion();
-    });
+    startBasicTestBtn.addEventListener("click", () => startTest("basic"));
+}
+
+// Evento para iniciar el test avanzado
+if (startAdvancedTestBtn) {
+    startAdvancedTestBtn.addEventListener("click", () => startTest("advanced"));
+}
+
+// Evento para iniciar el test completo
+if (startCompleteTestBtn) {
+    startCompleteTestBtn.addEventListener("click", () => startTest("complete"));
 }
 
 if (prevBtn) {
     prevBtn.addEventListener("click", () => {
         if (currentQuestion > 0) {
             currentQuestion -= 1;
-            renderQuestion();
+            renderQuestion(questions);
         }
     });
 }
@@ -89,9 +121,9 @@ if (nextBtn) {
             return;
         }
 
-        if (currentQuestion < questions_basic.length - 1) {
+        if (currentQuestion < questions.length - 1) {
             currentQuestion += 1;
-            renderQuestion();
+            renderQuestion(questions);
         } else {
             calculaResultado(answers);
             mostrarResultados();
