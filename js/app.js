@@ -1,3 +1,4 @@
+const openStartPage = document.getElementById("openStartPage");
 const startBasicTestBtn = document.getElementById("startBasicTestBtn");
 const startAdvancedTestBtn = document.getElementById("startAdvancedTestBtn");
 const startCompleteTestBtn = document.getElementById("startCompleteTestBtn");
@@ -9,10 +10,15 @@ const resultContainer = document.getElementById("result-container");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const buttons = document.getElementById("buttons");
+const progressWrapper = document.querySelector(".progress-wrapper");
 
 let currentQuestion = 0;
 const answers = [];
 let questionStartTime = 0;
+
+if (openStartPage) {
+    openStartPage.addEventListener("click", () => { window.location.href = "pagina_inicio.html" });  
+}
 
 // Activar el botón "empezar test" cuando termine la animación de entrada
 if (botonesEmpezarTest) {
@@ -125,9 +131,7 @@ if (nextBtn) {
             currentQuestion += 1;
             renderQuestion(questions);
         } else {
-            calculaResultado(answers);
-            mostrarResultados();
-            ocultarBotones();
+            mostrarResultadoFinal(answers);
         }
     });
 }
@@ -164,33 +168,57 @@ function actualizaResultado(respuesta) {
     const conjunto = respuesta.split('-');
     const categoria = conjunto[0];
     const valor = conjunto[1];
-    mapTypes[categoria] += parseInt(valor);
+    mapTypes[categoria] += parseInt(valor, 10);
 }
 
-function mostrarResultados() {
-    if (questionContainer) {
-        questionContainer.classList.add("hidden");
-    }
-
+function mostrarResultadoFinal(respuestas) {
     if (!resultContainer) {
         return;
     }
 
+    for (const categoria in mapTypes) {
+        mapTypes[categoria] = 0;
+    }
+
+    calculaResultado(respuestas);
+
+    if (questionContainer) {
+        questionContainer.classList.add("hidden");
+    }
+
+    let resultadosHtml = "";
+    for (const categoria in mapTypes) {
+        resultadosHtml += `
+            <div class="category-header">
+                <span>${categoria}</span>
+                <span class="category-score">${mapTypes[categoria]} pts</span>
+            </div>
+
+            <div class="category-text">
+                <span class="text_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</span>
+            </div>
+        `;
+    }
+
     resultContainer.classList.remove("hidden");
     resultContainer.innerHTML = `
-        <div class="result-summary">
-            <h2>Resultados</h2>
-            <ul class="result-list">
-                <li><strong>Analítico: </strong> ${mapTypes.analitico}</li>
-                <li><strong>Auditivo: </strong> ${mapTypes.auditivo}</li>
-                <li><strong>Autodidacta: </strong> ${mapTypes.autodidacta}</li>
-                <li><strong>Experiencial: </strong> ${mapTypes.experiencial}</li>
-                <li><strong>Kinestésico: </strong> ${mapTypes.kinestesico}</li>
-                <li><strong>Social: </strong> ${mapTypes.social}</li>
-                <li><strong>Visual: </strong> ${mapTypes.visual}</li>
+        <div class="result">
+            <h1>Formulario completado</h1>
+            <p>Gracias por responder.</p>
+            <ul class="notas-lista">
+                ${resultadosHtml}
             </ul>
         </div>
     `;
+
+    ocultarBotones();
+    ocultarProgreso();
+}
+
+function ocultarProgreso() {
+    if (progressWrapper) {
+        progressWrapper.classList.add("hidden");
+    }
 }
 
 function ocultarBotones() {

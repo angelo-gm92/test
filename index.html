@@ -1,55 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página de Inicio - Test de Habilidades</title>
     <link rel="stylesheet" href="./css/style.css">
+
 </head>
 
 <body>
-    <main class="home page">
-        <div id="logo">
-            <img src="./assets/images/NTEC_0526_logo completo.png" alt="Logo" class="logo">
+    <div class="index-home">
+        <div class="left">
+            <img src="/assets/images/nexus_logo.png" alt="Imagen de presentación">
         </div>
-        <div id="start">
-            <h1>Nexus Psychometric Test</h1>
-            <br>
-            <br>
-            <button id="startBasicTestBtn" class="primary-btn" disabled>Empezar test básico</button>
-            <button id="startAdvancedTestBtn" class="primary-btn" disabled>Empezar test avanzado</button>
-            <button id="startCompleteTestBtn" class="primary-btn" disabled>Empezar test completo</button>
+
+        <div class="right">
+            <h1>Bienvenido al Test de Habilidades</h1>
+            <p>
+                Esta prueba te permitirá evaluar diferentes áreas de tus capacidades de manera rápida y sencilla.
+                Prepárate para responder una serie de preguntas diseñadas para medir tu nivel actual.
+            </p>
+
+            <button id="openStartPage" class="btn-start">Comenzar prueba</button>
         </div>
-    </main>
+    </div>
 
-    <section class="test page hidden">
-        <div class="container">
-
-            <div id="question-container"></div>
-            <div id="result-container" class="hidden"></div>
-            <div class="buttons" id="buttons">
-                <button id="prevBtn" onclick="updateBar(currentQuestion-1)">Anterior</button>
-                <button id="nextBtn" onclick="updateBar(currentQuestion+1)">Siguiente</button>
-            </div>
-
-            <div class="progress-wrapper">
-
-
-                <div class="progress-container">
-                    <div class="progress-fill" id="bar"></div>
-                </div>
-
-                <p class="progress-text" id="progress-text">
-                    0% completado
-                </p>
-
-            </div>
-
-        </div>
-    </section>
-
-    <script src="./js/questions.js"></script>
     <script src="./js/app.js"></script>
 </body>
 
